@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapContainer,TileLayer, Marker, Popup} from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import '../../node_modules/leaflet/dist/leaflet.css';
 
 const center = [-6.17523297070254, 106.82718123499757];
 
