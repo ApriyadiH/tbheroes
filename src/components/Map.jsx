@@ -17,7 +17,7 @@ export default function App() {
         url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
       />
-      <Marker position={position}>
+      <Marker position={position} src={'https://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-Clipart.png'}>
         <Popup>
           Tulisan di dalam pop up.
         </Popup>
