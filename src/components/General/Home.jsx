@@ -15,7 +15,7 @@ const Home = () => {
       <div>
         <h3>Statistic</h3>
         <div className="row">
-          <StContainerStatistic className="col">Recipients</StContainerStatistic>
+          <StContainerStatistic className="col">Recipients cscs</StContainerStatistic>
           <StContainerStatistic className="col">Donors</StContainerStatistic>
           <StContainerStatistic className="col">A Blood Type</StContainerStatistic>
           <StContainerStatistic className="col">B Blood Type</StContainerStatistic>
