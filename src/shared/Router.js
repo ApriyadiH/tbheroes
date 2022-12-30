@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Test from "../pages/Test";
 import Chat from "../components/TestChat";
+import Test2 from "../components/Test2";
 import Map from "../pages/map";
 import Navbar from "../components/General/Navbar";
 import Homepage from "../pages/Homepage";
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/map" element={<Map />} />
         <Route path="/test" element={<Test />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/test2" element={<Test2 />} />
       </Routes>
       <ChatBox/>
     </BrowserRouter>
