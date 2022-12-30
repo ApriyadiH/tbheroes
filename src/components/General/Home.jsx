@@ -1,5 +1,5 @@
 // Import library
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 // import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <StContainer className="container-fluid">
       <div>
-        Statistic
+        <h3>Statistic</h3>
         <div className="row">
           <StContainerStatistic className="col">Recipients</StContainerStatistic>
           <StContainerStatistic className="col">Donors</StContainerStatistic>
@@ -28,37 +28,51 @@ const Home = () => {
         </div>
       </div>
       <StContainerMap>
-        <Map/>
+        <div className="row mb-2">
+        <div className="input-group mb-3">
+          <input type="text" className="form-control" aria-label="Text input with dropdown button"/>
+          <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+          <ul className="dropdown-menu dropdown-menu-end">
+            <li><a className="dropdown-item" href="/">A</a></li>
+            <li><a className="dropdown-item" href="/">B</a></li>
+            <li><a className="dropdown-item" href="/">AB</a></li>
+            <li><a className="dropdown-item" href="/">O</a></li>
+          </ul>
+        </div>
+        </div>
+        <div>
+          <Map/>
+        </div>
       </StContainerMap>
       <StContainerEvent>
-        <div>Event</div>
-        <div className="row row-cols">
-          <StCardEvent className="col-3">
-            <div style={{width:"10vh"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
+        <div className="d-flex justify-content-center"><h3>Event</h3></div>
+        <div className="row row-cols-4">
+          <StCardEvent className='col'>
+            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
             <div>Event name</div>
             <div>Location</div>
             <div>Time</div>
           </StCardEvent>
-          <StCardEvent className="col-3">
-            <div style={{width:"10vh"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
+          <StCardEvent className='col'>
+            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
             <div>Event name</div>
             <div>Location</div>
             <div>Time</div>
           </StCardEvent>
-          <StCardEvent className="col-3">
-            <div style={{width:"10vh"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
+          <StCardEvent className='col'>
+            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
             <div>Event name</div>
             <div>Location</div>
             <div>Time</div>
           </StCardEvent>
-          <StCardEvent className="col-3">
-            <div style={{width:"10vh"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
+          <StCardEvent className='col'>
+            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
             <div>Event name</div>
             <div>Location</div>
             <div>Time</div>
           </StCardEvent>
-          <StCardEvent className="col-3">
-            <div style={{width:"10vh"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
+          <StCardEvent className='col'>
+            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
             <div>Event name</div>
             <div>Location</div>
             <div>Time</div>
@@ -99,5 +113,9 @@ const StContainerEvent = styled.div`
 
 const StCardEvent = styled.div`
   margin-top: 20px;
-  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 `

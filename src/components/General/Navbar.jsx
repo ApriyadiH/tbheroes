@@ -17,6 +17,8 @@ const Navbar = () => {
   // Take user information from redux
   const { isAdmin, isLoggedIn } = useSelector((state) => state.user);
 
+  console.log(isAdmin)
+
   // Logout
   const handleLogout = () => {
     dispatch(logout());
