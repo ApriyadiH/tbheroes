@@ -23,9 +23,9 @@ const User = () => {
         <StContainerInput>
             <div class="row">
                 <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
+                <div className="col d-grid"> <input type="button" value="B" class="btn btn-outline-danger" /></div>
+                <div className="col d-grid"> <input type="button" value="0" class="btn btn-outline-danger" /></div>
+                <div className="col d-grid"> <input type="button" value="AB" class="btn btn-outline-danger" /></div>
        </div>
         </StContainerInput>
         <StContainerLabel>Location</StContainerLabel>
@@ -69,5 +69,5 @@ const StContainerLabel = styled.div`
 
 const StContainerPicture = styled.div`
 background-color: #ffffff;
-Border: 2px;
+border-style:solid;
 `
