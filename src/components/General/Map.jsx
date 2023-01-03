@@ -13,7 +13,7 @@ const myIcon = new L.Icon({
 
 const center = [-6.17523297070254, 106.82718123499757];
 
-const position =  [-6.171851653295678, 106.82595814774415]
+const position = [-6.171851653295678, 106.82595814774415]
 
 export default function App() {
   return (
