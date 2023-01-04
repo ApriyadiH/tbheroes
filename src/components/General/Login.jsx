@@ -12,11 +12,11 @@ function Login() {
       <form>
       <StContainerLabel>Email</StContainerLabel>
       <StContainerInput>
-          <input type="text" name="email" class="form-control" placeholder="Email"/>
+          <input type="text" name="nama" class="form-control" placeholder="Full Name"/>
       </StContainerInput>
       <StContainerLabel>Password</StContainerLabel>
       <StContainerInput>
-          <input type="text" name="password" class="form-control" placeholder="Password"/>
+          <input type="text" name="email" class="form-control" placeholder="Email"/>
       </StContainerInput>
       <StContainerText>
       <div className="col d-grid"> 
@@ -56,10 +56,6 @@ const StContainerLabel = styled.div`
   padding: 5px;
 `
 
-const StContainerPicture = styled.div`
-background-color: #ffffff;
-border-style:solid;
-`
 const StContainerText = styled.div`
   padding: 20px;
   text-align: center;
