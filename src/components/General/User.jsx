@@ -10,7 +10,8 @@ const User = () => {
       <StContainerForm>
         <div className="d-flex justify-content-center"><h3>Profile</h3></div>
         <form>
-        <StContainerPicture>Name</StContainerPicture>
+        <StContainerPicture>Picture</StContainerPicture>
+        <input type="file" name="picture" class="form-control"/>
         <StContainerLabel>Name</StContainerLabel>
         <StContainerInput>
             <input type="text" name="nama" class="form-control" placeholder="Full Name"/>
