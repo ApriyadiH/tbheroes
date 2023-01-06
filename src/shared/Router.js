@@ -9,6 +9,7 @@ import Homepage from "../pages/Homepage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ChatBox from "../components/General/Chatbox";
+import User from "../pages/User";
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/test2" element={<Test2 />} />
+        <Route path="/User" element={<User />} />
       </Routes>
       <ChatBox/>
     </BrowserRouter>

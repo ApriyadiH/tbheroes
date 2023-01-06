@@ -1,24 +1,22 @@
 import React, {useEffect} from "react";
-import io from "socket.io-client"
-
-// const socket = io.connect("https://tbheroesserver.vercel.app/");
-const socket = io.connect("http://localhost:3001");
+import Pusher from "pusher-js";
 
 function TestChat() {
-  const send = () => {
-    socket.emit("send_message", {message: "test" })
-  }
+  Pusher.logToConsole = true;
 
-  useEffect(()=>{
-    socket.on("receive_message", (data) => {
-      alert(data.message)
-    })
-  }, [socket])
+  var pusher = new Pusher("fbaea5207fa7923cfdce", {
+    cluster: "ap1",
+  });
+
+  var channel = pusher.subscribe("my-channel");
+  channel.bind("my-event", function (data) {
+    alert(JSON.stringify(data));
+  });
 
   return (
     <div>
       <input type="text"></input>
-      <button onClick={send}>Kirim</button>
+      <button>Kirim</button>
     </div>
   );
 }
