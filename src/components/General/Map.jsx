@@ -33,7 +33,7 @@ const Map = () => {
         <Popup>
           <Cardcontainer>
             <Title>Donor</Title>
-            <Image></Image>
+            <ImageContainer><StImage src="https://pbs.twimg.com/profile_images/428316729220276224/EdBZ2Kgp.jpeg" alt="profilepic" width="150px"></StImage></ImageContainer>
             <Nama>Fajar</Nama>
             <Goldar>Blood Type</Goldar>
             <Detail>Details</Detail>
@@ -59,15 +59,15 @@ height: 307.77px;
 left: 1092px;
 top: 254px;
 
-background: #FFFFF
+background: #FFFFFF;
 box-shadow: 0px 30px 44px rgba(200, 200, 200, 0.25);
 border-radius: 20px;
 z-index : 0;
 `
 
 const Title = styled.div`
-  width: 59px;
-  height: 24px;
+  width: 60px;
+  height: 20px;
   margin-top :20px;
   font-family: 'Inter';
   font-style: normal;
@@ -81,34 +81,28 @@ const Title = styled.div`
   z-index: 1;
   flex-grow: 0;
 `
-const Image = styled.div`
+const ImageContainer = styled.div`
   position: fixed;
-  left: 50px;
-  right: 50px;
+  left: auto;
+  right: auto;
   top: 70px;
   bottom: 120px;
-  border-radius: 20px;
-  z-index: 2;
-  border-color : gray;
-  img {
-    inset: 0px;
-    display: block;
-    height: 100px;
-    object-fit: cover;
-    opacity: 1;
-    position: absolute;
-    transition: opacity 500ms ease-in-out 0s;
-    width: 170px;
-    z-index: 2;
-    top: 0;
-  }
-  background: url("https://th.bing.com/th?id=OIF.QCVBVAVF9I7r%2br3UcP1Qgg&pid=ImgDet&rs=1");
+  z-index: 1;
 `
 
+const StImage = styled.img`
+  display: block;
+  object-fit: fill;
+  opacity: 1;
+  border-radius: 20px;
+  border-color : gray;
+  align-items: center;
+  z-index: 2;
+`
 const Nama = styled.div`
   width: 45px;
   height: 22px;
-  margin-top: 150px;
+  margin-top: 160px;
   align-content: center;
 
   /* text-base/reguler */
@@ -157,22 +151,19 @@ const Detail = styled.div`
 
   background: #565656;
   border-radius: 8px;
-
   /* Inside auto layout */
   flex: none;
   flex-grow: 0;
-
   /* text-base/reguler */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-
   /* or 22px */
   display: flex;
   align-items: ;
-  color: #FAFAFA;
+  color:#FAFAFA;
   /* Inside auto layout */
   flex: none;
   flex-grow: 0;
