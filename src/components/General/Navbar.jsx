@@ -42,8 +42,7 @@ const Navbar = () => {
     <StNav className="navbar navbar-expand-lg">
       <div className="container-fluid" style={{ "padding": "0px 30px" }}>
         <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-          <h3>The Blood heroes</h3>
-          <p>Your Blood is their life</p>
+          <img src="assets/LOGO.png" style={{width:"172px", height:"32px", gap:"8px", objectFit:"fill" }} ></img>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -51,13 +50,16 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <div type="button" className="nav-link">Menu 1</div>
+              <div type="button" className="nav-link" style={{marginLeft:"10vw", width: "100px", height:"22px", fontFamily:'Inter', fontSize:"16px", fontWeight:"400"}}>Menu 1</div>
             </li>
             <li className="nav-item">
-              <div type="button" className="nav-link">Menu 2</div>
+              <div type="button" className="nav-link" style={{width: "100px", height:"22px", fontFamily:'Inter', fontSize:"16px", fontWeight:"400"}}>Menu 2</div>
             </li>
             <li className="nav-item">
-              <div type="button" className="nav-link">Menu 3</div>
+              <div type="button" className="nav-link" style={{width: "100px", height:"22px", fontFamily:'Inter', fontSize:"16px", fontWeight:"400"}}>Menu 3</div>
+            </li>
+            <li className="nav-item">
+              <div type="button" className="nav-link" style={{width: "100px", height:"22px", fontFamily:'Inter', fontSize:"16px", fontWeight:"400"}}>Menu 4</div>
             </li>
           </ul>
           {isLoggedIn ? (
@@ -88,13 +90,13 @@ const Navbar = () => {
             </li>
           ) : (
             <li className="d-flex px-2">
-              <Link className="nav-link" to="/Login"><StText>Login</StText></Link>
+              <Link className="nav-link" to="/Login"><St1Text>Login</St1Text></Link>
             </li>
           )
           }
             <li className="d-flex px-2">
-              <button className="btn btn-secondary">
-                <Link className="nav-link" to="/Register"><StText>Sign-up</StText></Link>
+              <button className="btn btn-secondary" style={{width:"100px", height:"48px", background: "#DE0A2D", justifyContent: "center", alignItems: "center", padding:"12px 16px", gap:"8px"}}>
+                <Link className="nav-link" to="/Register"><StText>Sign Up</StText></Link>
               </button>
             </li>
         </div>
@@ -106,10 +108,31 @@ const Navbar = () => {
 export default Navbar;
 
 const StNav = styled.nav`
-  background-color: #b7b7b7;
+  background-color: #FFFFFF;
 `
 const StText = styled.span`
-  text-align: center;
-  font-weight: 500;
-  font-size: calc(1.275rem + 0.3vw);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  color: #FAFAFA;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`
+
+const St1Text = styled.span`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `

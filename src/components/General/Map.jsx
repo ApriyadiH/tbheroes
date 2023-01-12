@@ -29,10 +29,14 @@ const Map = () => {
       />
 
       <StLegend>
-        <Icon1 class="icon_div" src="assets/Point_Resipient.svg"></Icon1>
-        <Text class="tex_div">Recipients</Text>
-        <Icon2 src="assets/Point_Donor.svg"></Icon2>
-        <Text class="tex_div">Donor</Text>
+        <div className='row'>
+          <Icon1 className='col' src="assets/Point_Resipient.svg"></Icon1>
+          <Text className='col my-auto'>Recipients</Text>
+        </div>
+        <div className='row'>
+          <Icon2 className='col' src="assets/Point_Donor.svg"></Icon2>
+          <Text className='col my-auto'>Donor</Text>
+        </div>
       </StLegend>
 
       <Marker 
@@ -90,6 +94,8 @@ const Title = styled.div`
 `
 const ImageContainer = styled.div`
   position: fixed;
+  width: 160px;
+  height: 141.77px;
   left: auto;
   right: auto;
   top: 70px;
@@ -186,7 +192,7 @@ const StLegend = styled.div`
   position: absolute;
   width: 164px;
   height: 119.83px;
-  left: 1100px;
+  left: 87%;
   top: 250px;
   background: #FFFFFF;
   box-shadow: 4px 12px 24px rgba(200, 200, 200, 0.25);
@@ -196,21 +202,23 @@ const StLegend = styled.div`
 `
 
 const Icon1 = styled.img`
-  width: 24px;
-  height: 31.92px;
+  width: 50px;
+  height: 40px;
   flex: none;
   order: 0;
   flex-grow: 0;
+  margin:auto;
 `
 
 const Icon2 = styled.img`
-  width: 24px;
-  height: 31.92px;
+  width: 50px;
+  height: 40px;
   flex: none;
   order: 0;
   flex-grow: 0;
+  margin:auto;
 `
-const Text = styled.text`
+const Text = styled.p`
   width: 59px;
   height: 24px;
  /* text-lg/medium */
@@ -225,7 +233,7 @@ const Text = styled.text`
   flex: none;
   order: 1;
   flex-grow: 0;
-  z-index:500;
+  z-index:1000;
 `
 // const Pic1 = styled.img`
 //   width: 24px;

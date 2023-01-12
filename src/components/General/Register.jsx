@@ -44,8 +44,16 @@ function Register() {
 export default Register;
 
 const StContainer = styled.div`
-  background-color: #dddddd;
+  background-color: #FBA69B;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0px;
+  gap: 64px;
+  position: relative;
+  width: 1440px;
+  height: 952px;
 `
 
 const StContainerForm = styled.div`
