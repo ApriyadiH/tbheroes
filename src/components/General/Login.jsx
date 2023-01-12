@@ -35,8 +35,16 @@ function Login() {
 export default Login;
 
 const StContainer = styled.div`
-  background-color: #dddddd;
+  background-color: #FBA69B;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 355px;
+  gap: 8px;
+  position: relative;
+  width: 1440px;
+  height: 684px;
 `
 
 const StContainerForm = styled.div`
