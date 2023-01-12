@@ -45,7 +45,8 @@ const Home = () => {
         </div>
       </StContainerMap>
       <StContainerEvent>
-        <div className="d-flex justify-content-center"><h3>Event</h3></div>
+        <div className="d-flex justify-content-center"><text style={{fontSize:"20px",marginBottom:"10px"}}>EVENT LIST</text></div>
+        <div className="d-flex justify-content-center"><text style={{color:"#DE0A2D", fontFamily:'Inter',fontStyle:'normal',fontWeight:"700",lineHeight:"56px",fontSize:"46px"}}>CHECKOUT THIS EVENT !</text></div>
         <div className="row row-cols-4">
           <StCardEvent className='col'>
             <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
@@ -98,7 +99,7 @@ const StContainerStatistic = styled.div`
 `
 
 const StContainerMap = styled.div`
-  background-color: #ffffff;
+  background-color: #FBA69B;
   margin-top: 20px;
   padding: 20px;
   border-radius: 15px;
