@@ -2,13 +2,13 @@ import React from 'react';
 import { MapContainer,TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import styled from "styled-components";
-
 import L from 'leaflet';
+
 const myIcon = new L.Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/5216/5216413.png",
-    iconRetinaUrl: "https://cdn-icons-png.flaticon.com/512/5216/5216413.png",
-    popupAnchor:  [-0, -0],
-    iconSize: [40,40],     
+    iconUrl: "assets/Point_Donor.svg",
+    iconRetinaUrl: "assets/Point_Donor.svg",
+    popupAnchor: [-0, -0],
+    iconSize: [30,30],     
     shadowUrl: null,
 });
 
@@ -23,6 +23,10 @@ const Map = () => {
       zoom={15}
       style={{ width: '100%', height: '400px' }}
     >
+      <StLegend>
+        <Icon1 src="assets/Point_Resipient.svg">Recipients</Icon1>
+        <Icon2 src="assets/Point_Donor.svg">Donor</Icon2>
+      </StLegend>
       <TileLayer
         url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
@@ -33,7 +37,7 @@ const Map = () => {
         <Popup>
           <Cardcontainer>
             <Title>Donor</Title>
-            <ImageContainer><StImage src="https://pbs.twimg.com/profile_images/428316729220276224/EdBZ2Kgp.jpeg" alt="profilepic" width="150px"></StImage></ImageContainer>
+            <ImageContainer><StImage src="https://yt3.ggpht.com/a/AATXAJyS9ISC_e59kX9QJCF2Ox2vbPcIMoXs6lreKU9ryg=s900-c-k-c0xffffffff-no-rj-mo" alt="ProfilePic" width="150px"></StImage></ImageContainer>
             <Nama>Fajar</Nama>
             <Goldar>Blood Type</Goldar>
             <Detail>Details</Detail>
@@ -62,7 +66,6 @@ top: 254px;
 background: #FFFFFF;
 box-shadow: 0px 30px 44px rgba(200, 200, 200, 0.25);
 border-radius: 20px;
-z-index : 0;
 `
 
 const Title = styled.div`
@@ -149,7 +152,7 @@ const Detail = styled.div`
   height: 38px;
   margin-top: 0px;
 
-  background: #565656;
+  background: #DE0A2D;
   border-radius: 8px;
   /* Inside auto layout */
   flex: none;
@@ -162,10 +165,97 @@ const Detail = styled.div`
   line-height: 140%;
   /* or 22px */
   display: flex;
-  align-items: ;
+  align-items: center;
   color:#FAFAFA;
-  /* Inside auto layout */
   flex: none;
   flex-grow: 0;
   z-index: 3;
 `
+
+const StLegend = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 24px;
+  position: absolute;
+  width: 164px;
+  height: 119.83px;
+  left: 1100px;
+  top: 250px;
+  background: #FFFFFF;
+  box-shadow: 4px 12px 24px rgba(200, 200, 200, 0.25);
+  border-radius: 20px;
+  opacity: 1;
+  z-index: 499;
+`
+
+const Icon1 = styled.div`
+  width: 100px;
+  height: 24px;
+  /* text-lg/medium */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  /* identical to box height, or 24px */
+  color: #1B1B1B;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  .img{
+    width: 24px;
+    height: 31.92px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+`
+
+const Icon2 = styled.div`
+  width: 59px;
+  height: 24px;
+ /* text-lg/medium */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  /* identical to box height, or 24px */
+  color: #1B1B1B;
+ /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  .img{
+    width: 24px;
+    height: 31.92px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+`
+// const Pic1 = styled.img`
+//   width: 24px;
+//   height: 31.92px;
+//   background: #000000;
+
+//   flex: none;
+//   order: 0;
+//   flex-grow: 0;
+  
+// `
+// const Pic2 = styled.img`
+//   width: 24px;
+//   height: 31.92px;
+
+//   background: #A5A5A5;
+//   flex: none;
+//   order: 0;
+//   flex-grow: 0;
+// `

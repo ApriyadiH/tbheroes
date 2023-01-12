@@ -43,15 +43,10 @@ const Home = () => {
         <div>
           <Map/>
         </div>
-        <div>
-          <Legend>
-            <Icon1><Pic1></Pic1>Resipient</Icon1>
-            <Icon2><Pic2></Pic2>Donor</Icon2>
-          </Legend>
-        </div>
       </StContainerMap>
       <StContainerEvent>
-        <div className="d-flex justify-content-center"><h3>Event</h3></div>
+        <div className="d-flex justify-content-center"><h5>Event List</h5></div>
+        <div className="d-flex justify-content-center" style={{color:"#DE0A2D"}}><h1>Checkout This Event !</h1></div>
         <div className="row row-cols-4">
           <StCardEvent className='col'>
             <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
@@ -104,7 +99,7 @@ const StContainerStatistic = styled.div`
 `
 
 const StContainerMap = styled.div`
-  background-color: #ffffff;
+  background-color: #FBA69B;
   margin-top: 20px;
   padding: 20px;
   border-radius: 15px;
@@ -124,77 +119,4 @@ const StCardEvent = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-`
-
-const Legend = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
-  padding: 16px;
-  gap: 24px;
-  position: absolute;
-  width: 164px;
-  height: 119.83px;
-  left: 85%;
-  top: 623px;
-  background: #FFFFFF;
-  box-shadow: 4px 12px 24px rgba(200, 200, 200, 0.25);
-  border-radius: 20px;
-  opacity: 0.5;
-  z-index: 5;
-`
-
-const Icon1 = styled.div`
-  width: 100px;
-  height: 24px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-
-  color: #1B1B1B;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  gap: 10px;
-`
-
-const Icon2 = styled.div`
-  width: 80px;
-  height: 24px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-
-  color: #1B1B1B;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-`
-const Pic1 = styled.img`
-  width: 24px;
-  height: 31.92px;
-  background: #000000;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  
-`
-const Pic2 = styled.img`
-  width: 24px;
-  height: 31.92px;
-
-  background: #A5A5A5;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `
