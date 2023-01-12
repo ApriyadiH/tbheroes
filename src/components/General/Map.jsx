@@ -23,14 +23,18 @@ const Map = () => {
       zoom={15}
       style={{ width: '100%', height: '400px' }}
     >
-      <StLegend>
-        <Icon1 src="assets/Point_Resipient.svg">Recipients</Icon1>
-        <Icon2 src="assets/Point_Donor.svg">Donor</Icon2>
-      </StLegend>
       <TileLayer
         url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
       />
+
+      <StLegend>
+        <Icon1 class="icon_div" src="assets/Point_Resipient.svg"></Icon1>
+        <Text class="tex_div">Recipients</Text>
+        <Icon2 src="assets/Point_Donor.svg"></Icon2>
+        <Text class="tex_div">Donor</Text>
+      </StLegend>
+
       <Marker 
         position={position} 
         icon= {myIcon}>
@@ -191,32 +195,22 @@ const StLegend = styled.div`
   z-index: 499;
 `
 
-const Icon1 = styled.div`
-  width: 100px;
-  height: 24px;
-  /* text-lg/medium */
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-  /* identical to box height, or 24px */
-  color: #1B1B1B;
-  /* Inside auto layout */
+const Icon1 = styled.img`
+  width: 24px;
+  height: 31.92px;
   flex: none;
-  order: 1;
+  order: 0;
   flex-grow: 0;
-
-  .img{
-    width: 24px;
-    height: 31.92px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
 `
 
-const Icon2 = styled.div`
+const Icon2 = styled.img`
+  width: 24px;
+  height: 31.92px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`
+const Text = styled.text`
   width: 59px;
   height: 24px;
  /* text-lg/medium */
@@ -231,14 +225,7 @@ const Icon2 = styled.div`
   flex: none;
   order: 1;
   flex-grow: 0;
-
-  .img{
-    width: 24px;
-    height: 31.92px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
+  z-index:500;
 `
 // const Pic1 = styled.img`
 //   width: 24px;
