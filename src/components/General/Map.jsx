@@ -2,6 +2,8 @@ import React from 'react';
 import { MapContainer,TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+import styled from "styled-components";
+
 import L from 'leaflet';
 const myIcon = new L.Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/5216/5216413.png",
@@ -22,6 +24,7 @@ export default function App() {
       zoom={15}
       style={{ width: '100%', height: '400px' }}
     >
+      <StLegend/>
       <TileLayer
         url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
@@ -36,3 +39,12 @@ export default function App() {
     </MapContainer>
   );
 }
+
+const StLegend = styled.div`
+  position: absolute;
+  z-index: 400;
+  background-color: green;
+  width: 10vw;
+  height: 10vh;
+`
+
