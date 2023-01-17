@@ -3,9 +3,7 @@ import Register from '../components/General/Register';
 
 function RegisterPage() {
   return (
-    <div>
-      <Register/>
-    </div>
+    <Register/>
   );
 }
 

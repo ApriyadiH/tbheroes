@@ -1,12 +1,10 @@
 import React from "react";
 import User from '../components/General/User';
 
-function UserPage() {
+function UserInformationPage() {
   return (
-    <div>
-      <User/>
-    </div>
+    <User/>
   );
 }
 
-export default UserPage;
+export default UserInformationPage;

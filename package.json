@@ -12,6 +12,7 @@
     "leaflet": "^1.9.3",
     "pusher-js": "^8.0.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.0",
     "react-redux": "^8.0.5",
@@ -19,7 +20,6 @@
     "react-scripts": "5.0.1",
     "reactjs-popup": "^2.0.5",
     "redux": "^4.2.0",
-    "socket.io-client": "^4.5.4",
     "styled-components": "^5.3.6",
     "vercel": "^28.10.1",
     "web-vitals": "^2.1.0"
