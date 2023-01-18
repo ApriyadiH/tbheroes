@@ -51,7 +51,7 @@ const Map = () => {
             <Detail>Details</Detail>
           </Cardcontainer>
           </Popup>
-        <Tooltip>Blood Type</Tooltip>
+        <Tooltip direction="right" offset={[0, 20]} opacity={1} permanent>Blood Type</Tooltip>
       </Marker>
     </MapContainer>
   );
@@ -78,20 +78,15 @@ border-radius: 20px;
 `
 
 const Title = styled.div`
-  width: 60px;
-  height: 20px;
   margin-top :20px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 120%;
 /* identical to box height, or 24px */
   color: #1B1B1B;
   /* Inside auto layout */
-  flex: none;
   z-index: 1;
-  flex-grow: 0;
 `
 const ImageContainer = styled.div`
   position: fixed;
@@ -114,8 +109,6 @@ const StImage = styled.img`
   z-index: 2;
 `
 const Nama = styled.div`
-  width: 45px;
-  height: 22px;
   margin-top: 160px;
   align-content: center;
 
@@ -124,7 +117,6 @@ const Nama = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 140%;
   /* or 22px */
   color: #1B1B1B;
   /* Inside auto layout */
@@ -135,8 +127,6 @@ const Nama = styled.div`
 `
 
 const Goldar = styled.div`
-  width: 85px;
-  height: 22px;
   /* text-base/reguler */
   font-family: 'Inter';
   font-style: normal;
@@ -145,10 +135,7 @@ const Goldar = styled.div`
   line-height: 140%;
   /* or 22px */
   color: #1B1B1B;
-  /* Inside auto layout */
-  flex: none;
   z-index: 2;
-  flex-grow: 0;
 `
 
 const Detail = styled.div`
@@ -173,13 +160,9 @@ const Detail = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 140%;
   /* or 22px */
-  display: flex;
   align-items: center;
   color:#FAFAFA;
-  flex: none;
-  flex-grow: 0;
   z-index: 3;
 `
 
@@ -227,31 +210,9 @@ const Text = styled.p`
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 120%;
   /* identical to box height, or 24px */
   color: #1B1B1B;
  /* Inside auto layout */
-  flex: none;
   order: 1;
-  flex-grow: 0;
   z-index:1000;
 `
-// const Pic1 = styled.img`
-//   width: 24px;
-//   height: 31.92px;
-//   background: #000000;
-
-//   flex: none;
-//   order: 0;
-//   flex-grow: 0;
-  
-// `
-// const Pic2 = styled.img`
-//   width: 24px;
-//   height: 31.92px;
-
-//   background: #A5A5A5;
-//   flex: none;
-//   order: 0;
-//   flex-grow: 0;
-// `

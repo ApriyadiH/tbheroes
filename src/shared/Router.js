@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ChatBox from "../components/General/Chatbox";
 import User from "../pages/User";
+import Profile from "../components/General/Profile";
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/test2" element={<Test2 />} />
         <Route path="/User" element={<User />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <ChatBox/>
     </BrowserRouter>
