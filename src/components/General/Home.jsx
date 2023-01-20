@@ -48,42 +48,40 @@ const Home = () => {
         <div className="d-flex justify-content-center"><text style={{color:"#DE0A2D", fontFamily:'Inter',fontStyle:'normal',fontWeight:"700",lineHeight:"56px",fontSize:"46px"}}>CHECKOUT THIS EVENT !</text></div>
         <div className="row row-cols-4">
           <StCardEvent className='col'>
-            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
-            <div>Event name</div>
-            <div>Location</div>
-            <div>Time</div>
+            <EventImage src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></EventImage>
+            <DateBorder><text style={{fontSize:"16px",fontFamily:'Inter',fontWeight:"400",color: "#6A013A",width:"330px",height:"58px"}}>20 June 2022</text></DateBorder>
+            <EventTitle>DONOR DARAH PAGELARAN PORSENI</EventTitle>
+            <EventRegion>South Sulawesi</EventRegion>
           </StCardEvent>
           <StCardEvent className='col'>
-            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
-            <div>Event name</div>
-            <div>Location</div>
-            <div>Time</div>
+          <EventImage src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></EventImage>
+            <DateBorder><text style={{fontSize:"16px",fontFamily:'Inter',fontWeight:"400",color: "#6A013A",width:"330px",height:"58px"}}>20 June 2022</text></DateBorder>
+            <EventTitle>DONOR DARAH PAGELARAN PORSENI</EventTitle>
+            <EventRegion>South Sulawesi</EventRegion>
           </StCardEvent>
           <StCardEvent className='col'>
-            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
-            <div>Event name</div>
-            <div>Location</div>
-            <div>Time</div>
+          <EventImage src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></EventImage>
+            <DateBorder><text style={{fontSize:"16px",fontFamily:'Inter',fontWeight:"400",color: "#6A013A",width:"330px",height:"58px"}}>20 June 2022</text></DateBorder>
+            <EventTitle>DONOR DARAH PAGELARAN PORSENI</EventTitle>
+            <EventRegion>South Sulawesi</EventRegion>
           </StCardEvent>
           <StCardEvent className='col'>
-            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
-            <div>Event name</div>
-            <div>Location</div>
-            <div>Time</div>
-          </StCardEvent>
-          <StCardEvent className='col'>
-            <div style={{width:"25vh", margin:"auto"}}><img src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></img></div>
-            <div>Event name</div>
-            <div>Location</div>
-            <div>Time</div>
+          <EventImage src="https://cdn5.vectorstock.com/i/1000x1000/69/74/blood-donation-poster-vector-20916974.jpg" alt="poster" width="100%"></EventImage>
+            <DateBorder><text style={{fontSize:"16px",fontFamily:'Inter',fontWeight:"400",color: "#6A013A",width:"330px",height:"58px"}}>20 June 2022</text></DateBorder>
+            <EventTitle>DONOR DARAH PAGELARAN PORSENI</EventTitle>
+            <EventRegion>South Sulawesi</EventRegion>
           </StCardEvent>
         </div>
       </StContainerEvent>
       <StFooter>
+        <StFooterIn>
         <div className='row'>
-          <SocialMedia className='col' src="assets/twitter.svg"></SocialMedia>
-          <SocialMedia className='col' src="assets/Facebook.svg"></SocialMedia>
+          <div className='col'><img src="assets/Twitter.svg" alt="Profilpic"></img></div>
+          <div className='col'><img src="assets/Facebook.svg" alt="Profilpic"></img></div>
+          <div className='col'><img src="assets/Messenger.svg" alt="Profilpic"></img></div>
+          <div className='col'><img src="assets/Instagram.svg" alt="Profilpic"></img></div>
         </div>
+        </StFooterIn>
         <div className='row'>
           <TextFooter className='col'>Cookie Policy</TextFooter>
           <TextFooter className='col'>Privacy Policy</TextFooter>
@@ -109,7 +107,7 @@ const StContainerStatistic = styled.div`
   align-items: flex-start;
   padding: 12px 16px;
   gap: 8px;
-  width: 184.67px;
+  width: 180px;
   height: 94px;
   background: #FFFFFF;
   box-shadow: 5px 15px 44px rgba(166, 166, 166, 0.25);
@@ -195,6 +193,28 @@ const StFooter = styled.div`
   background: #FFFFFF;
 `
 
+const StFooterIn = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 10px;
+
+  width: 1440px;
+  height: 15px;
+
+  /* White / 100 */
+
+  background: #FFFFFF;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+`
+
 const TextFooter = styled.text`
   width: 120px;
   height: 24px;
@@ -215,9 +235,67 @@ const TextFooter = styled.text`
   flex-grow: 0;
 `
 
-const SocialMedia = styled.img`
-  position: absolute;
-  height: 26.666667938232422px;
-  width: 26.666667938232422px;
-  border-radius: 0px;
+const EventImage = styled.img`
+  width: 300px;
+  height: 330px;
+  border-radius: 16px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin:auto;
+`
+
+const DateBorder = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px 10px 4px 10px;
+  width: 112px;
+  height: 28px;
+  /* Primary/200 */
+  background: #FBA69B;
+  border-radius: 16px;
+  margin-top: 24px;
+`
+
+const EventTitle = styled.text`
+  width: 330px;
+  height: 58px;
+  /* text-xl/medium */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 29px;
+  line-height: 120%;
+  /* or 29px */
+  color: #000000;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-top: 8px;
+  margin-bottom:8px;
+  text-align:left;
+`
+
+const EventRegion = styled.text`
+  width: 330px;
+  height: 22px;
+  /* text-base/reguler */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  color: #2B2B2B;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  top:0px;
+  text-align:left;
+  margin-top:8px;
 `

@@ -20,6 +20,15 @@ import VolunteerList from "../pages/volunteer/VolunteerList";
 // Import Components
 import Navbar from "../components/general/Navbar"; 
 import Footer from "../components/general/Footer"; 
+import Test from "../pages/Test";
+import Chat from "../components/TestChat";
+import Test2 from "../components/Test2";
+import Navbar from "../components/General/Navbar";
+import Homepage from "../pages/Homepage";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import User from "../pages/User";
+import Profile from "../components/General/Profile";
 
 const Router = () => {
   return (
@@ -40,6 +49,10 @@ const Router = () => {
         <Route path="/user/management" element={<UserManagement />} />
         <Route path="/volunteer/details/:userId" element={<VolunteerDetails />} />
         <Route path="/volunteer/list" element={<VolunteerList />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/test2" element={<Test2 />} />
+        <Route path="/User" element={<User />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer/>
     </BrowserRouter>
