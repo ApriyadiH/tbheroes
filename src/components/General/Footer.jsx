@@ -21,14 +21,13 @@ const Footer = () =>  {
       <Row>
         <Col className="text-center">
           <div>
-            <StLink>Link</StLink>
-            <StLink>Link</StLink>
-            <StLink>Link</StLink>
-            <StLink>Link</StLink>
+            <StLink>Cookie Policy</StLink>
+            <StLink>Privacy Policy</StLink>
+            <StLink>Terms of Use</StLink>
+            <StLink>Preferences</StLink>
           </div>
         </Col>
       </Row>
-
     </StContainer>
   );
 };
