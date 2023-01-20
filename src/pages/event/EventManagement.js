@@ -1,8 +1,9 @@
 import React from "react";
+import EventManagement from "../../components/event/EventManagement"
 
 function EventManagementPage() {
   return (
-    <p> For admin, admin can check all event list, search, and edit status or delete if necessary.</p>
+    <EventManagement/>
   );
 }
 

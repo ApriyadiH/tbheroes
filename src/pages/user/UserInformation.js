@@ -1,9 +1,9 @@
 import React from "react";
-import User from '../components/General/User';
+import UserInformation from '../../components/user/UserInformation';
 
 function UserInformationPage() {
   return (
-    <User/>
+    <UserInformation/>
   );
 }
 

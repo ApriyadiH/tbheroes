@@ -1,8 +1,9 @@
 import React from "react";
+import RequestReview from "../../components/request/RequestReview"
 
 function RequestReviewPage() {
   return (
-    <p>This is request Review, user can give a review to volunteer who already donate their blood.</p>
+    <RequestReview/>
   );
 }
 

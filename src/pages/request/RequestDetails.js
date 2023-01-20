@@ -1,8 +1,9 @@
 import React from "react";
+import RequestDetails from "../../components/request/RequestDetails"
 
 function RequestDetailsPage() {
   return (
-    <p>Detailed page for more information from blood donation request.</p>
+    <RequestDetails/>
   );
 }
 

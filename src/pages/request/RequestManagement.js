@@ -1,8 +1,9 @@
 import React from "react";
+import RequestManagement from "../../components/request/RequestManagement"
 
 function RequestManagementPage() {
   return (
-    <p>Page for admin to manage request. Admin can change the status, delete request.</p>
+    <RequestManagement/>  
   );
 }
 
