@@ -1,7 +1,11 @@
 import React from 'react';
+import styled from "styled-components";
+
+import Container from 'react-bootstrap/Container';
+import Searchbox from './Searchbox';
+
 import { MapContainer,TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import styled from "styled-components";
 import L from 'leaflet';
 
 const myIcon = new L.Icon({
@@ -12,53 +16,72 @@ const myIcon = new L.Icon({
     shadowUrl: null,
 });
 
-const center = [-6.17523297070254, 106.82718123499757];
-
-const position = [-6.171851653295678, 106.82595814774415]
-
 const Map = () => {
+  // kalau bisa mengikuti posisi User
+  const center = [-6.17523297070254, 106.82718123499757];
+  
+  // Bikin jadi array
+  const position = [-6.171851653295678, 106.82595814774415]
   return (
-    <MapContainer
-      center={center}
-      zoom={15}
-      style={{ width: '100%', height: '400px' }}
-    >
-      <StLegend/>
-      <TileLayer
-        url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
-        attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-      />
+    <StContainer fluid>
+      <div>
+        <Searchbox/>
+      </div>
+      <StMapContainer
+        scrollWheelZoom={false}
+        center={center}
+        zoom={15}
+      >
+        <StLegend/>
+        <TileLayer
+          url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
+          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        />
 
-      <StLegend>
-        <div className='row'>
-          <Icon1 className='col' src="assets/Point_Resipient.svg"></Icon1>
-          <Text className='col my-auto'>Recipients</Text>
-        </div>
-        <div className='row'>
-          <Icon2 className='col' src="assets/Point_Donor.svg"></Icon2>
-          <Text className='col my-auto'>Donor</Text>
-        </div>
-      </StLegend>
+        <StLegend>
+          <div className='row'>
+            <Icon1 className='col' src="assets/Point_Resipient.svg"></Icon1>
+            <Text className='col my-auto'>Recipients</Text>
+          </div>
+          <div className='row'>
+            <Icon2 className='col' src="assets/Point_Donor.svg"></Icon2>
+            <Text className='col my-auto'>Donor</Text>
+          </div>
+        </StLegend>
 
-      <Marker 
-        position={position} 
-        icon= {myIcon}>
-        <Popup>
-          <Cardcontainer>
-            <Title>Donor</Title>
-            <ImageContainer><StImage src="https://yt3.ggpht.com/a/AATXAJyS9ISC_e59kX9QJCF2Ox2vbPcIMoXs6lreKU9ryg=s900-c-k-c0xffffffff-no-rj-mo" alt="ProfilePic" width="150px"></StImage></ImageContainer>
-            <Nama>Fajar</Nama>
-            <Goldar>Blood Type</Goldar>
-            <Detail>Details</Detail>
-          </Cardcontainer>
-          </Popup>
-      </Marker>
-    </MapContainer>
+        <Marker 
+          position={position} 
+          icon= {myIcon}>
+          <Popup>
+            <Cardcontainer>
+              <Title>Donor</Title>
+              <ImageContainer><StImage src="https://yt3.ggpht.com/a/AATXAJyS9ISC_e59kX9QJCF2Ox2vbPcIMoXs6lreKU9ryg=s900-c-k-c0xffffffff-no-rj-mo" alt="ProfilePic" width="150px"></StImage></ImageContainer>
+              <Nama>Fajar</Nama>
+              <Goldar>Blood Type</Goldar>
+              <Detail>Details</Detail>
+            </Cardcontainer>
+            </Popup>
+        </Marker>
+      </StMapContainer>
+    </StContainer>
   );
 }
 
 export default Map;
 
+const StContainer = styled(Container)`
+  padding: 24px;
+  background-color: #FBA69B;
+`
+
+const StMapContainer = styled(MapContainer)`
+  height: 80vh;
+  border-radius:16px;
+`
+
+
+
+/// PERLU DIKURANGIN YG BAWAH2 INI
 const Cardcontainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -236,22 +259,3 @@ const Text = styled.p`
   flex-grow: 0;
   z-index:1000;
 `
-// const Pic1 = styled.img`
-//   width: 24px;
-//   height: 31.92px;
-//   background: #000000;
-
-//   flex: none;
-//   order: 0;
-//   flex-grow: 0;
-  
-// `
-// const Pic2 = styled.img`
-//   width: 24px;
-//   height: 31.92px;
-
-//   background: #A5A5A5;
-//   flex: none;
-//   order: 0;
-//   flex-grow: 0;
-// `

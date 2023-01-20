@@ -1,8 +1,9 @@
 import React from "react";
+import RequestForm from "../../components/request/RequestForm"
 
 function RequestFormPage() {
   return (
-    <p>This is request form, user who need blood bag can fill the form.</p>
+    <RequestForm/>   
   );
 }
 

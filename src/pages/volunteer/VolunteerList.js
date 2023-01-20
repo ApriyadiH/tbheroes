@@ -1,8 +1,9 @@
 import React from "react";
+import VolunteerList from '../../components/volunteer/VolunteerList';
 
 function VolunteerListPage() {
   return (
-    <p> Anyone can see the volunteer list</p>
+    <VolunteerList/>
   );
 }
 

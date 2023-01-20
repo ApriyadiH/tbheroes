@@ -1,8 +1,9 @@
 import React from "react";
+import VolunteerDetails from '../../components/volunteer/VolunteerDetails';
 
 function VolunteerDetailsPage() {
   return (
-    <p> This is Volunteer Details Page</p>
+    <VolunteerDetails/>
   );
 }
 
