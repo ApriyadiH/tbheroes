@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import React from "react";
 import styled from "styled-components";
 
+import { ReactComponent as Logo } from "../../assets/img/logo.svg";
+
 const NavbarTBH = () =>  {
   const role = "admin";
   console.log(role)
@@ -16,15 +18,15 @@ const NavbarTBH = () =>  {
       <Container fluid>
         <Navbar.Brand href="/" >
           <StContainerImage>
-            <img src="assets/img/logo.svg" alt="logo" width="100%"/>
+            <Logo width="100%" />
           </StContainerImage>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <StNavDropdown className="px-3" title="Request" variant="light" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/event/form">Request form</NavDropdown.Item>
-              <NavDropdown.Item href="/event/form">Request list</NavDropdown.Item>
+              <NavDropdown.Item href="/request/form">Request form</NavDropdown.Item>
+              <NavDropdown.Item href="/request/list">Request list</NavDropdown.Item>
             </StNavDropdown>
             <StNavDropdown className="px-3" title="Event Poster" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/event/form">Event Poster Form</NavDropdown.Item>

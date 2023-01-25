@@ -8,6 +8,8 @@ import Stack from 'react-bootstrap/Stack';
 
 import styled from 'styled-components';
 
+import { ReactComponent as Magnifier } from "../../assets/img/magnifier.svg";
+
 const Searchbox = () => {
   const addfilterA = () => {
     console.log("ayam goreng")
@@ -16,7 +18,7 @@ const Searchbox = () => {
     <Stack direction="horizontal" gap={3}>
       <StContainer fluid >
         <InputGroup>
-          <InputGroup.Text id="basic-addon1" variant="light"><img src="assets/img/magnifier.svg" alt="search"/></InputGroup.Text>
+          <InputGroup.Text id="basic-addon1" variant="light"><Magnifier/></InputGroup.Text>
           <Form.Control
             placeholder="Find heroes..."
             aria-label="search"
