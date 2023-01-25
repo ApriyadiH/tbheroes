@@ -1,9 +1,9 @@
 // Import Library
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 
 // Import Pages 
-import { EventForm, EventManagement, Homepage, Login, Register, RequestDetails, RequestForm, RequestManagement, RequestReview, Test, UserInformation, UserManagement, VolunteerDetails, VolunteerList  } from "../pages/"
+import { EventForm, EventList, EventManagement, Homepage, Login, Register, RequestDetails, RequestForm, RequestList, RequestManagement, RequestReview, Test, UserChangePassword, UserInformation, UserManagement, VolunteerDetails, VolunteerList  } from "../pages/"
 
 // Import Components
 import Navbar from "../components/general/Navbar"; 
@@ -13,40 +13,47 @@ import Chatbox from "../components/general/Chatbox";
 const Router = () => {
   return (
     <BrowserRouter>
-      <Navbar/>
       <Routes>
-        {/* Event */}
-        <Route path="/event/form" element={<EventForm />} />
-        <Route path="/event/management" element={<EventManagement />} />
-
-        {/* General */}
-        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+      
+        <Route element={
+        <>
+          <Navbar/>
+          <Outlet/>
+          <Chatbox/>
+          <Footer/>
+        </>}>
 
-        {/* Request */}
-        <Route path="/request/form" element={<RequestForm />} />
-        <Route path="/request/management" element={<RequestManagement />} />
-        <Route path="/request/details/:requestId" element={<RequestDetails />} />
-        <Route path="/request/review/:requestId" element={<RequestReview />} />
+          {/* This is inside Outlet */}
+          {/* Event */}
+          <Route path="/event/form" element={<EventForm />} />
+          <Route path="/event/list" element={<EventList />} />
+          <Route path="/event/management" element={<EventManagement />} />
 
-        {/* Test */}
-        <Route path="/test" element={<Test />} />
+          {/* General */}
+          <Route path="/" element={<Homepage />} />
 
-        {/* User */}
-        <Route path="/user/information/:userId" element={<UserInformation />} />
-        <Route path="/user/management" element={<UserManagement />} />
-        
-        {/* Volunteer */}
-        <Route path="/volunteer/details/:userId" element={<VolunteerDetails />} />
-        <Route path="/volunteer/list" element={<VolunteerList />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/test2" element={<Test2 />} />
-        <Route path="/User" element={<User />} />
-        <Route path="/profile" element={<Profile />} />
+          {/* Request */}
+          <Route path="/request/form" element={<RequestForm />} />
+          <Route path="/request/list" element={<RequestList />} />
+          <Route path="/request/management" element={<RequestManagement />} />
+          <Route path="/request/details/:requestId" element={<RequestDetails />} />
+          <Route path="/request/review/:requestId" element={<RequestReview />} />
+
+          {/* Test */}
+          <Route path="/test" element={<Test />} />
+
+          {/* User */}
+          <Route path="/user/information/:userId" element={<UserInformation />} />
+          <Route path="/user/password/" element={<UserChangePassword />} />
+          <Route path="/user/management" element={<UserManagement />} />
+          
+          {/* Volunteer */}
+          <Route path="/volunteer/details/:userId" element={<VolunteerDetails />} />
+          <Route path="/volunteer/list" element={<VolunteerList />} />
+        </Route>
       </Routes>
-      <Chatbox/>
-      <Footer/>
     </BrowserRouter>
   );
 };
