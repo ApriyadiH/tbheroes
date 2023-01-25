@@ -238,8 +238,4 @@ const Text = styled.p`
  /* Inside auto layout */
   order: 1;
   z-index:1000;
-<<<<<<< HEAD
 `
-=======
-`
->>>>>>> origin/apri
