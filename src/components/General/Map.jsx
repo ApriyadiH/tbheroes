@@ -1,14 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
 import { MapContainer,TileLayer, Marker, Popup,Tooltip} from 'react-leaflet';
-=======
 import styled from "styled-components";
 
 import Container from 'react-bootstrap/Container';
 import Searchbox from './Searchbox';
 
-import { MapContainer,TileLayer, Marker, Popup} from 'react-leaflet';
->>>>>>> origin/apri
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
