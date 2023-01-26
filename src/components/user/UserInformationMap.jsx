@@ -7,8 +7,6 @@ import L from 'leaflet';
 
 const urlMap = "https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=" + process.env.REACT_APP_MAP_KEY;
 
-
-
 const myIcon = new L.Icon({
     iconUrl: "https://icons.getbootstrap.com/assets/icons/geo-alt-fill.svg",
     iconRetinaUrl: "https://icons.getbootstrap.com/assets/icons/geo-alt-fill.svg",
