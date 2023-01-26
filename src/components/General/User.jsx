@@ -22,12 +22,12 @@ const User = () => {
         </StContainerInput>
         <StContainerLabel>Blood Type</StContainerLabel>
         <StContainerInput>
-            <div class="row">
-                <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="B" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="0" class="btn btn-outline-danger" /></div>
-                <div className="col d-grid"> <input type="button" value="AB" class="btn btn-outline-danger" /></div>
-       </div>
+          <div class="row">
+              <div className="col d-grid"> <input type="button" value="A" class="btn btn-outline-danger" /></div>
+              <div className="col d-grid"> <input type="button" value="B" class="btn btn-outline-danger" /></div>
+              <div className="col d-grid"> <input type="button" value="0" class="btn btn-outline-danger" /></div>
+              <div className="col d-grid"> <input type="button" value="AB" class="btn btn-outline-danger" /></div>
+          </div>
         </StContainerInput>
         <StContainerLabel>Location</StContainerLabel>
         <StContainerInput> 

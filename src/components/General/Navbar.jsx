@@ -23,7 +23,7 @@ const NavbarTBH = () =>  {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <StNav className="me-auto">
             <StNavDropdown className="px-3" title="Request" variant="light" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/request/form">Request form</NavDropdown.Item>
               <NavDropdown.Item href="/request/list">Request list</NavDropdown.Item>
@@ -37,15 +37,15 @@ const NavbarTBH = () =>  {
               <NavDropdown.Item href="/user/information/:userId">Add/Edit Information</NavDropdown.Item>
               <NavDropdown.Item href="/user/password">Change password</NavDropdown.Item>
             </StNavDropdown>
-          </Nav>
-          <Nav>
+          </StNav>
+          <StNav>
             <Nav.Link href="/login">
               <Button variant="transparent"><StText>Log In</StText></Button>
             </Nav.Link>
             <Nav.Link eventKey={2} href="/register">
               <Button variant="danger">Sign Up</Button>
             </Nav.Link>
-          </Nav>
+          </StNav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -57,6 +57,16 @@ export default NavbarTBH;
 const StContainerImage = styled.div`
   /* width: 12vw; */
   width: 172px;
+`
+
+const StNav = styled(Nav)`
+  display: flex;
+  align-items: center;
+
+  p{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 `
 
 const StNavDropdown = styled(NavDropdown)`

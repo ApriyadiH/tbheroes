@@ -6,14 +6,14 @@ import Button from 'react-bootstrap/Button';
 
 import styled from "styled-components";
 
-import { ReactComponent as ArrowLeft } from "../../assets/img/arrowLeft.svg";
+import { ReactComponent as House } from "../../assets/img/house.svg";
 import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <StContainer fluid>
       <StContainerForm>
-        <Link to="/"><StArrowContainer><ArrowLeft /></StArrowContainer></Link>
+        <Link to="/"><StHouseContainer><House /></StHouseContainer></Link>
         <StTextMiddle>
           <StLoginForm>Login Form</StLoginForm>
         </StTextMiddle>
@@ -60,7 +60,7 @@ const StContainerForm = styled.div`
   border-radius: 16px;
 `
 
-const StArrowContainer = styled.div`
+const StHouseContainer = styled.div`
   width: 30px;
   height: 30px;
   display: flex;

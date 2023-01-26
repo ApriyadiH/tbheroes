@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer,TileLayer, Marker, Popup,Tooltip} from 'react-leaflet';
+import { MapContainer,TileLayer, Marker, Popup } from 'react-leaflet';
 import styled from "styled-components";
 
 import Container from 'react-bootstrap/Container';
@@ -7,6 +7,8 @@ import Searchbox from './Searchbox';
 
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+
+const urlMap = "https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=" + process.env.REACT_APP_MAP_KEY;
 
 const myIcon = new L.Icon({
     iconUrl: "assets/Point_Donor.svg",
@@ -34,7 +36,7 @@ const Map = () => {
       >
         <StLegend/>
         <TileLayer
-          url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=caADrFh1FFN8pQYpkQWk"
+          url= {urlMap}
           attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
         />
 
@@ -194,13 +196,15 @@ const StLegend = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
+  gap: 8px;
   padding: 16px;
-  gap: 24px;
+  
+  width: max-content;
+  height: max-content;
+  
   position: absolute;
-  width: 164px;
-  height: 119.83px;
-  left: 87%;
-  top: 250px;
+  right: 1%;
+  bottom: 5%;
   background: #FFFFFF;
   box-shadow: 4px 12px 24px rgba(200, 200, 200, 0.25);
   border-radius: 20px;
@@ -226,8 +230,6 @@ const Icon2 = styled.img`
   margin:auto;
 `
 const Text = styled.p`
-  width: 59px;
-  height: 24px;
  /* text-lg/medium */
   font-family: 'Inter';
   font-style: normal;
