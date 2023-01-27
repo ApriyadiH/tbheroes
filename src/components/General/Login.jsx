@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from '../../redux/modules/userLoginSlice';
+import { useNavigate } from "react-router-dom";
 
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -10,6 +13,48 @@ import { ReactComponent as House } from "../../assets/img/house.svg";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {isLoggedIn} = useSelector((state) => state.userLogin);
+
+  const [email, setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const [ userInput, setUserInput] = useState({
+    email: "" ,
+    password: "" 
+  });
+
+  const onChangeHandlerEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  useEffect(()=>{
+    setUserInput({ 
+      email,
+      password
+    });
+  },[email, password])
+
+  const onChangeHandlerPassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const onClickHandlerLogin = (event) => {
+    event.preventDefault()
+    login(userInput)
+  }
+
+  const login = (values) => {
+    dispatch(userLogin(values));
+    setEmail("")
+    setPassword("")
+  }
+
+  if (isLoggedIn) {
+    navigate("/");
+  }
+
   return (
     <StContainer fluid>
       <StContainerForm>
@@ -22,17 +67,17 @@ function Login() {
         </StTextMiddle>
         <StForm>
           <StContainerLabel>Email</StContainerLabel>
-          <StInput type="text" name="email" class="form-control" placeholder="Email"/>
+          <StInput type="text" name="email" className="form-control" placeholder="Email" onChange={onChangeHandlerEmail} value={email}/>
           <StContainerLabel>Password</StContainerLabel>
-          <StInput type="password" name="password" class="form-control" placeholder="Password"/>
-          <StButton variant="danger">Sign Up</StButton>
+          <StInput type="password" name="password" className="form-control" placeholder="Password" onChange={onChangeHandlerPassword} value={password}/>
+          <StButton variant="danger" onClick={onClickHandlerLogin}>Log In</StButton>
         </StForm>
         <StBottomText>
           Don't Have An Account?
           <Link to="/register" type="button" > Sign Up Here </Link>   
         </StBottomText>
         {/* <StBottomText>Or Login Using</StBottomText>   
-          <input type="Submit" value="Google Account" class="btn btn-outline-danger d-grid gap-2 mx-auto" /> */}
+          <input type="Submit" value="Google Account" className="btn btn-outline-danger d-grid gap-2 mx-auto" /> */}
       </StContainerForm>
     </StContainer>
   );

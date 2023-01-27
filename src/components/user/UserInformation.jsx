@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,9 +10,58 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import UserInformationMap from "./UserInformationMap"
 
 import styled from "styled-components";
+import { useNavigate, useParams } from 'react-router-dom';
 
 const UserInformation = () => {
-  const [radioValue, setRadioValue] = useState();
+  const { userId } = useParams();
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = user.token;
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
+
+  const [image, setImage] = useState("");
+  const [canDonate, setCanDonate] = useState(false);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [bloodType,setBloodType] = useState("");
+  const [location,setLocation] = useState([]);
+  const [ userInput, setUserInput] = useState({
+    image: "" ,
+    canDonate: false,
+    username: "",
+    email: "",
+    bloodType: "",
+    location: []
+  });
+
+  const fetchTest = async () => {
+    const { data } = await axios.get(`https://tbheroesserver.vercel.app/user/${userId}`);
+    setImage(data.data.image)
+    setCanDonate(data.data.canDonate)
+    setUsername(data.data.username)
+    setEmail(data.data.email)
+    setBloodType(data.data.bloodType)
+    setLocation(data.data.location)
+  };
+
+  useEffect(() => {
+    fetchTest();
+  }, []);
+
+  useEffect(() => {
+    setUserInput({
+      image: image ,
+      canDonate: canDonate,
+      username: username,
+      email: email,
+      bloodType: bloodType,
+      location: location
+    })
+  }, [image,canDonate,username,email,bloodType,location]);
 
   const radios = [
     { name: 'A', value: 'A' },
@@ -19,9 +69,21 @@ const UserInformation = () => {
     { name: 'O', value: 'O' },
     { name: 'AB', value: 'AB' },
   ];
-
-  const [imageLink, setImageLink] = useState("https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg")
   
+  const onSubmitHandler = async () =>{
+    console.log(userId, "Ayam");
+    await axios.patch(`https://tbheroesserver.vercel.app/user/add/${userId}`,{
+      bloodType: userInput.bloodType ,
+      location: userInput.location, 
+      image: userInput.image, 
+      canDonate: userInput.canDonate,
+    }, config);
+    console.log("data berhasil diubah");
+    navigate("/")
+  }
+
+
+
   return (
     <StContainer fluid>
       <StContainerForm>
@@ -29,17 +91,17 @@ const UserInformation = () => {
           <StTitle>Profile</StTitle>
         </StTextMiddle>
         <StForm>
-          <StImageContainer><img src={imageLink} alt="" width="100%"/></StImageContainer>
+          <StImageContainer><img src={image} alt="" width="100%"/></StImageContainer>
           <StContainerLabel>Image</StContainerLabel>
-          <StInput type="text" name="image" className="form-control" placeholder="Image Url" value={imageLink} onChange={(e) => setImageLink(e.currentTarget.value)}/>
+          <StInput type="text" name="image" className="form-control" placeholder="Image Url" value={image} onChange={(e) => setImage(e.currentTarget.value)}/>
           <StToggleContainer>
             <StContainerLabel>Active Status</StContainerLabel>
-            <Form.Check type="switch" />
+            <Form.Check type="switch" checked={canDonate} onChange={() => setCanDonate(!canDonate)}/>
           </StToggleContainer>
           <StContainerLabel>Username</StContainerLabel>
-          <StInput type="text" name="userame" className="form-control" placeholder="Username"/>
+          <StInput type="text" name="userame" className="form-control" placeholder="Username" value={username} onChange={(e) => setUsername(e.currentTarget.value)}/>
           <StContainerLabel>Email</StContainerLabel>
-          <StInput type="text" name="email" className="form-control" placeholder="Email"/>
+          <StInput type="text" name="email" className="form-control" placeholder="Email" value={email} onChange={(e) => setEmail(e.currentTarget.value)}/>
           <StContainerLabel>Blood Type</StContainerLabel>
           <StButtonGroup>
             {radios.map((radio, idx) => (
@@ -48,16 +110,19 @@ const UserInformation = () => {
                 type="radio"
                 variant={'outline-danger'}
                 value={radio.value}
-                checked={radioValue === radio.value}
-                onChange={(e) => setRadioValue(e.currentTarget.value)}
+                checked={bloodType === radio.value}
+                onChange={(e) => setBloodType(e.currentTarget.value)}
               >
                 {radio.name}
               </ToggleButton>
             ))}
           </StButtonGroup>
           <StContainerLabel>Location</StContainerLabel>
-              <UserInformationMap/>
-          <StButton variant="danger">Save profile Information</StButton>
+              <UserInformationMap 
+              location= {location}
+              setLocation={setLocation}
+              />
+          <StButton variant="danger" onClick={()=>{onSubmitHandler()}}>Save profile Information</StButton>
         </StForm>
       </StContainerForm>
     </StContainer>

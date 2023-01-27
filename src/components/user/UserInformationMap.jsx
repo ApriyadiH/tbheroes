@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo }  from 'react';
+import React, { useState, useRef, useMemo, useEffect }  from 'react';
 import { MapContainer,TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import styled from "styled-components";
 
@@ -15,8 +15,15 @@ const myIcon = new L.Icon({
     shadowUrl: null,
 });
 
-const Map = () => {
+const Map = ({location, setLocation}) => {
+  
   const [position, setPosition] = useState(null)
+
+  useEffect(()=>{
+    if (position != null){
+      setLocation([position.lat, position.lng])
+    }
+  },[position, setLocation])
 
   const markerRef = useRef(null)
   const eventHandlers = useMemo(
@@ -31,9 +38,6 @@ const Map = () => {
     [],
   )
 
-  setInterval(function() {
-    console.log(position)
-  }, 3000);
   
   function LocationMarker() {
     const map = useMapEvents({
@@ -60,7 +64,7 @@ const Map = () => {
   return (
     <StMapContainer
       scrollWheelZoom={false}
-      center={{lat: -6.171851653295678, lng: 106.82595814774415}}
+      center={[-6.171851653295678, 106.82595814774415]}
       zoom={16}
     >
       <TileLayer
@@ -75,7 +79,7 @@ const Map = () => {
 export default Map;
 
 const StMapContainer = styled(MapContainer)`
-  height: 20vh;
+  height: 40vh;
   border-radius:16px;
 
   padding-bottom: 24px;

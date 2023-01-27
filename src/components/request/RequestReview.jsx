@@ -25,7 +25,7 @@ const RequestReview = () =>  {
   return (
     <StContainer fluid>
       <StContainerForm>
-        <Link to="/request/list"><StArrowLeftContainer><ArrowLeft /></StArrowLeftContainer></Link>
+        <Link to="/request/details/63d357e8a73d43f580066537"><StArrowLeftContainer><ArrowLeft /></StArrowLeftContainer></Link>
         <StTextMiddle>
           <StTitle>Feed Back</StTitle>
         </StTextMiddle>

@@ -1,36 +1,84 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import RequestMaps from "./RequestMaps"
 import styled from "styled-components";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const RequestDetails = () =>  {
+  const { requestId } = useParams();
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = user.token;
+  const userId = user.userId;
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
+
+  const [details, setDetails] = useState(null);
+  const [donorList, setDonorList] = useState(null);
+  
+  const fetchRequestDetails = async () => {
+    const { data } = await axios.get(`https://tbheroesserver.vercel.app/request/${requestId}`, config);
+    setDetails(data.data);
+    setMapPosition(data.data.location);
+  };
+
+  const fetchDonorList = async () => {
+    const { data } = await axios.get(`https://tbheroesserver.vercel.app/donor/${requestId}`, config);
+    setDonorList(data.data);
+  }
+
+  useEffect(() => {
+    fetchRequestDetails();
+    fetchDonorList();
+  }, []);
+
+  const [mapPosition, setMapPosition] = useState(null);
+
+  const onClickReview = (donorId) => {
+    navigate(`/request/review/${donorId}`)
+  }
+
+  const onClickParticipate = () =>{
+    axios.post(`https://tbheroesserver.vercel.app/donor/`, {requestId, userId}, config);
+    alert("User Participated");
+    fetchDonorList();
+  }
+
+  console.log(donorList)
+
   return (
     <StContainer fluid>
       <StContainerForm>
         <StContainerLeft>
-        <h3>Request</h3>
-      <RequestMaps/>
-      <StContainerLabel>Nama :</StContainerLabel>
-      <StContainerLabel>Jumlah Kantong :</StContainerLabel>
-      <StContainerLabel>Golongan Darah :</StContainerLabel>
+          <StTitle>
+            Request
+          </StTitle>
+          <RequestMaps/>
+          <StContainerLabel>Name : {details?.username}</StContainerLabel>
+          <StContainerLabel>Quantity : {details?.quantity}</StContainerLabel>
+          <StContainerLabel>Blood type : {details?.bloodType}</StContainerLabel>
         </StContainerLeft>
        
         <StContainerRight>
-      <StContainerLabel>Terpenuhi :</StContainerLabel>
-      <StContainerLabel>Sisa Kebutuhan :</StContainerLabel>
-      <StButton>Participate</StButton>
-      <StContainerLabel>Daftar Orang yang berpartisipasi</StContainerLabel>
-      <div>
-      <StContainerList>User A 
-        <StButtonD>Done</StButtonD>
-        </StContainerList>
-      </div>
+          {/* <StContainerLabel>Fulfilled : {}</StContainerLabel>
+          <StContainerLabel>Still Need : {}</StContainerLabel> */}
+          <StButton onClick={()=>{onClickParticipate()}}>Participate</StButton>
+          <StContainerLabel>Participants</StContainerLabel>
+          {/* {donorList?.map((content,index)=>{ */}
+            <StContainerList>
+              <div>user 1</div> 
+              <Button variant="danger" onClick={()=>{onClickReview(donorList[0].donorId)}}>Done</Button>  
+            </StContainerList>
+          {/* })} */}
         </StContainerRight>
-
       </StContainerForm>
-      </StContainer>
+    </StContainer>
   );
 };
 
@@ -52,6 +100,13 @@ const StContainerForm = styled.div`
   border-radius: 16px;
 `
 
+const StTitle = styled.div`
+  font-size: 46px;
+  font-family: "Inter";
+  font-weight: 700;
+  margin : 10px;
+`
+
 const StContainerLabel = styled.div`
   font-size: 16px;
   font-family: "Inter";
@@ -62,8 +117,13 @@ const StContainerLabel = styled.div`
 const StContainerList = styled.div`
   background-color: #FBA69B;
   width: 100%;
+  min-height: 20vh;
   padding: 20px 30px;
   border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const StContainerLeft = styled(Container)`
@@ -76,15 +136,12 @@ const StContainerRight = styled(Container)`
 float: right;
 width: 50%;
 padding: 30px;
+
+margin-top: 80px;
 `
 
 const StButton = styled(Button)`
   margin-top: 24px;
   background-color: #0ade51;
   margin : 10px;
-`
-
-const StButtonD = styled(Button)`
-  float: right;
-  margin: auto;
 `

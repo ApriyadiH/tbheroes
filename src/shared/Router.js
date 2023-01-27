@@ -39,7 +39,7 @@ const Router = () => {
           <Route path="/request/list" element={<RequestList />} />
           <Route path="/request/management" element={<RequestManagement />} />
           <Route path="/request/details/:requestId" element={<RequestDetails />} />
-          <Route path="/request/review/:requestId" element={<RequestReview />} />
+          <Route path="/request/review/:donorId" element={<RequestReview />} />
 
           {/* Test */}
           <Route path="/test" element={<Test />} />

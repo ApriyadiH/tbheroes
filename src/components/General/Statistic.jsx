@@ -5,8 +5,18 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 const Statistic = () =>  {
+  
+  const retrieved = localStorage.getItem('user');
+  const user = JSON.parse(retrieved);
+
+  const navigate = useNavigate();
+  const onClickFillForm = () => {
+    navigate(`/user/information/${user.userId}`)
+  }
+
   return (
     <Container fluid>
       <Row>
@@ -48,7 +58,7 @@ const Statistic = () =>  {
         </Col>
         <Col className="text-center">
           <StText2>Be Heroes Now!</StText2>
-          <Button variant="danger" className="mb-3">Fill Donor Form</Button>
+          <Button variant="danger" className="mb-3" onClick={()=>{onClickFillForm()}}>Fill Donor Form</Button>
         </Col>
       </Row>
     </Container>

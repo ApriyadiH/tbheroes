@@ -1,16 +1,18 @@
-import React from 'react';
-import { MapContainer,TileLayer, Marker, Popup } from 'react-leaflet';
+import React, {useState, useEffect} from 'react';
+import { MapContainer,TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Searchbox from './Searchbox';
 
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import axios from 'axios';
 
 const urlMap = "https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=" + process.env.REACT_APP_MAP_KEY;
 
-const myIcon = new L.Icon({
+const donorIcon = new L.Icon({
     iconUrl: "assets/Point_Donor.svg",
     iconRetinaUrl: "assets/Point_Donor.svg",
     popupAnchor: [-0, -0],
@@ -18,12 +20,47 @@ const myIcon = new L.Icon({
     shadowUrl: null,
 });
 
+const recipientIcon = new L.Icon({
+    iconUrl: "assets/Point_Resipient.svg",
+    iconRetinaUrl: "assets/Point_Resipient.svg",
+    popupAnchor: [-0, -0],
+    iconSize: [30,30],     
+    shadowUrl: null,
+});
+
 const Map = () => {
-  // kalau bisa mengikuti posisi User
   const center = [-6.17523297070254, 106.82718123499757];
-  
-  // Bikin jadi array
-  const position = [-6.171851653295678, 106.82595814774415]
+
+  const [position, setPosition] = useState(null)
+
+  const [donorMarker, setDonorMarker] = useState(null);
+  const [requestMarker, setRequestMarker] = useState(null);
+
+  const fetchMarker = async () => {
+    const { data } = await axios.get("https://tbheroesserver.vercel.app/marker");
+    setDonorMarker(data?.donor);
+    setRequestMarker(data?.request);
+  };
+
+  useEffect(() => {
+    fetchMarker();
+  }, []);
+
+  console.log(donorMarker, "donor")
+  console.log(requestMarker, "req")
+
+  function LocationMarker() {
+    const map = useMapEvents({
+      click() {
+        map.locate()
+      },
+      locationfound(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
+    })
+  }
+
   return (
     <StContainer fluid>
       <div>
@@ -51,19 +88,59 @@ const Map = () => {
           </div>
         </StLegend>
 
-        <Marker 
-          position={position} 
-          icon= {myIcon}>
-          <Popup>
-            <Cardcontainer>
-              <Title>Donor</Title>
-              <ImageContainer><StImage src="https://yt3.ggpht.com/a/AATXAJyS9ISC_e59kX9QJCF2Ox2vbPcIMoXs6lreKU9ryg=s900-c-k-c0xffffffff-no-rj-mo" alt="ProfilePic" width="150px"></StImage></ImageContainer>
-              <Nama>Fajar</Nama>
-              <Goldar>Blood Type</Goldar>
-              <Detail>Details</Detail>
-            </Cardcontainer>
-            </Popup>
-        </Marker>
+        {donorMarker?.map((content)=>(
+          <Marker 
+          position={content.location} 
+          icon= {donorIcon}
+          key= {content._id}
+          >
+            {}
+            <Popup>
+              <Cardcontainer>
+                <Title>Donor</Title>
+                <ImageContainer><StImage src={content.image} alt="ProfilePic" width="150px"></StImage></ImageContainer>
+                <Nama>{content.username}</Nama>
+                <Goldar>{content.bloodType}</Goldar>
+                <Link to={`/user/information/${content._id}`}><Detail>Details</Detail></Link>
+              </Cardcontainer>
+              </Popup>
+          </Marker>
+        ))}
+        
+        {requestMarker?.map((content)=>(
+          <Marker 
+          position={content.location} 
+          icon= {recipientIcon}
+          >
+            <Popup>
+              <Cardcontainer>
+                <Title>Recipient</Title>
+                <ImageContainer><StImage src={content.image} alt="ProfilePic" width="150px"></StImage></ImageContainer>
+                <Nama>{content.username}</Nama>
+                <Goldar>{content.bloodType}</Goldar>
+                <Link to={`/request/details/${content.requestId}`}><Detail>Details</Detail></Link>
+              </Cardcontainer>
+              </Popup>
+          </Marker>
+        ))}
+
+        {donorMarker?.map((content)=>(
+          <Marker 
+          position={content.location} 
+          icon= {donorIcon}
+          >
+            <Popup>
+              <Cardcontainer>
+                <Title>Donor</Title>
+                <ImageContainer><StImage src={content.image} alt="ProfilePic" width="150px"></StImage></ImageContainer>
+                <Nama>{content.username}</Nama>
+                <Goldar>{content.bloodType}</Goldar>
+                <Detail>Details</Detail>
+              </Cardcontainer>
+              </Popup>
+          </Marker>
+        ))}
+        <LocationMarker/>
       </StMapContainer>
     </StContainer>
   );
@@ -150,6 +227,7 @@ const Nama = styled.div`
   flex-grow: 0;
   z-index: 3;
 `
+
 
 const Goldar = styled.div`
   /* text-base/reguler */
